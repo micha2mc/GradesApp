@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GradesApp</string>
+    <string name="listado_de_calificaciones">Listado de Calificaciones</string>
+    <string name="enter_the_name">Enter the name</string>
+    <string name="enter_the_grades">Enter the grades</string>
+    <string name="nota">N</string>
+    <string name="type">C</string>
+    <string name="nota_media">Nota media:</string>
+    <string name="add_grades">Add Grades</string>
+</resources>
