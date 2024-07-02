@@ -1,10 +1,9 @@
 package com.zakado.zkd.gradesapp
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.zakado.zkd.gradesapp.dao.Book
+import com.zakado.zkd.gradesapp.model.Book
 import com.zakado.zkd.gradesapp.databinding.ActivityAddBookBinding
 import com.zakado.zkd.gradesapp.db.BooksDatabaseHelper
 import com.zakado.zkd.gradesapp.utils.Utils
@@ -31,7 +30,7 @@ class AddBookActivity : AppCompatActivity() {
 
             db.insertBook(book)
             finish()
-            Toast.makeText(this, "Calificación guardada", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Saved grades", Toast.LENGTH_SHORT).show()
         }
     }
 }

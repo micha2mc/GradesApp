@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins"
-        android:text="Edit Grades"
+        android:text="@string/edit_grades"
         android:textColor="@color/orange"
         android:textSize="24sp" />
 
@@ -32,7 +32,7 @@
         android:id="@+id/updateNameEditText"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:hint="Enter _the _title"
+        android:hint="@string/enter_the_name"
         android:padding="12dp"
         android:textSize="20sp"
         android:layout_below="@id/editBookHeading"
@@ -45,7 +45,7 @@
         android:id="@+id/updateNoteEditText"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:hint="Enter the grades"
+        android:hint="@string/enter_the_grades"
         android:gravity="top"
         android:padding="12dp"
         android:textSize="18sp"

@@ -1,4 +1,4 @@
-package com.zakado.zkd.gradesapp.dao
+package com.zakado.zkd.gradesapp.model
 
 /**
  * Modelo de datos a guardar

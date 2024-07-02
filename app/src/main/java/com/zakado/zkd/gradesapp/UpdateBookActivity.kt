@@ -3,7 +3,7 @@ package com.zakado.zkd.gradesapp
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.zakado.zkd.gradesapp.dao.Book
+import com.zakado.zkd.gradesapp.model.Book
 import com.zakado.zkd.gradesapp.databinding.ActivityUpdateBookBinding
 import com.zakado.zkd.gradesapp.db.BooksDatabaseHelper
 import com.zakado.zkd.gradesapp.utils.Utils
@@ -40,7 +40,7 @@ class UpdateBookActivity : AppCompatActivity() {
             val category = Utils.gradesClasification(newNote.toDouble())
             db.updateBook(Book(bookId, newName, newNote.toDouble(), category))
             finish()
-            Toast.makeText(this, "Cambios guardados", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Changes saved", Toast.LENGTH_SHORT).show()
         }
     }
 }

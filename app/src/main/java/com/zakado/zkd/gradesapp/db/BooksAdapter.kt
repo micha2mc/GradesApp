@@ -12,9 +12,15 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.zakado.zkd.gradesapp.R
 import com.zakado.zkd.gradesapp.UpdateBookActivity
-import com.zakado.zkd.gradesapp.dao.Book
+import com.zakado.zkd.gradesapp.databinding.ActivityMainBinding
+import com.zakado.zkd.gradesapp.model.Book
+import com.zakado.zkd.gradesapp.utils.Utils
 
-class BooksAdapter(private var books: List<Book>, context: Context) :
+class BooksAdapter(
+    private var books: List<Book>,
+    private var binding: ActivityMainBinding,
+    context: Context
+) :
     RecyclerView.Adapter<BooksAdapter.BookViewHolder>() {
 
     private val db: BooksDatabaseHelper = BooksDatabaseHelper(context)
@@ -51,15 +57,16 @@ class BooksAdapter(private var books: List<Book>, context: Context) :
         holder.deleteButton.setOnClickListener {
             db.deleteBook(book.id)
             refreshData(db.getAllBooks())
-            Toast.makeText(holder.itemView.context, "Calificación eliminada", Toast.LENGTH_SHORT)
+            Toast.makeText(holder.itemView.context, "Deleted grades", Toast.LENGTH_SHORT)
                 .show()
         }
     }
 
-
     @SuppressLint("NotifyDataSetChanged")
     fun refreshData(newBooks: List<Book>) {
         books = newBooks
+        //Actualizamos el calculo y mensaje de la nota media
+        binding.booksMedia.text = Utils.calcularNotaMedia(books)
         notifyDataSetChanged()
     }
 }

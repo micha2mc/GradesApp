@@ -1,6 +1,6 @@
 package com.zakado.zkd.gradesapp.utils
 
-import com.zakado.zkd.gradesapp.dao.Book
+import com.zakado.zkd.gradesapp.model.Book
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -20,17 +20,23 @@ class Utils {
         }
 
         /**
-         * Funcion que se encarga de calcular la nota del usuario.
+         * Funcion que se encarga de calcular la nota media del usuario.
          */
         fun calcularNotaMedia(allBooks: List<Book>): String {
             var sumatorio = 0.0
+            val notaM: Double
             for (book in allBooks) {
                 sumatorio += book.note
             }
             val df = DecimalFormat("#.#")
             df.roundingMode = RoundingMode.CEILING
-            val notaM: Double = sumatorio / allBooks.size
-            return "Nota media: " + df.format(notaM)+" (${gradesClasification(notaM)})"
+            return if (allBooks.isNotEmpty()) {
+                notaM = sumatorio / allBooks.size
+                "Nota media: " + df.format(notaM) + " (${gradesClasification(notaM)})"
+            } else {
+                "Nota media: Sin especificar"
+            }
+
         }
     }
 }

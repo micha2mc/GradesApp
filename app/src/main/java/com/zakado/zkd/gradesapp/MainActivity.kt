@@ -4,13 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.zakado.zkd.gradesapp.dao.Book
 import com.zakado.zkd.gradesapp.databinding.ActivityMainBinding
 import com.zakado.zkd.gradesapp.db.BooksAdapter
 import com.zakado.zkd.gradesapp.db.BooksDatabaseHelper
 import com.zakado.zkd.gradesapp.utils.Utils
-import java.math.RoundingMode
-import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -25,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         db = BooksDatabaseHelper(this)
         val listBooks = db.getAllBooks()
-        booksAdapter = BooksAdapter(listBooks, this)
+        booksAdapter = BooksAdapter(listBooks, binding, this)
 
         //intercambio de informacion con View
         binding.booksRecyclerView.layoutManager = LinearLayoutManager(this)
